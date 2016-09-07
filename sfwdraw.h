@@ -51,7 +51,7 @@ NOTE: YOU MUST CALL initContext for any of the functions to work!
 #define RED		 0xff0000ff
 #define GREEN    0x00ff00ff
 #define BLUE	 0x0000ffff
-#define PINK     0xD09CD9
+#define PINK     0xD09CD9ff
 #define NONE     0x00000000
 
 #define PI 3.14159265359
