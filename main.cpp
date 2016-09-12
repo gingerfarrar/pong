@@ -2,6 +2,7 @@
 #include "paddle.h"
 #include "Ball.h"
 #include "score.h"
+#include "GameState.h"
 using namespace sfw;	
 
 void main()
