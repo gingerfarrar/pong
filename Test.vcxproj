@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ball.cpp" />
+    <ClCompile Include="gamestate.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="paddle.cpp" />
     <ClCompile Include="Score.cpp" />
