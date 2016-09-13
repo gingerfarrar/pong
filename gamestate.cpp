@@ -25,9 +25,7 @@ void GameState::update()
 		p1.updatePaddle();
 		p1.drawPaddle();
 		p2.updatePaddle();
-		p2.drawPaddle();
-		
-		
+		p2.drawPaddle();		
 		b1.drawBall();
 		b1.updateBall(p1,p2);
 	}
@@ -48,4 +46,17 @@ void GameState::draw()
 {
 	drawString(f, "fucking bullshit", 0, 600, 48, 48, 0, ' ');
 	drawScore(d, p1.score, p2.score);
+}
+
+APP_STATE GameState::next()
+{
+	if (getKey('V'))
+	{
+		return ENTER_OPTION;
+	}
+	if (getKey('E'))
+	{
+		return ENTER_DEPART;
+	}
+	return GAMESTATE;
 }

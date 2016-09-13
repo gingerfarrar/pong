@@ -15,10 +15,12 @@ void drawScore(unsigned font, int score1, int score2)
 
 void win(unsigned font)
 {
-	drawString(font, "Game Over Player 1 wins", 300, 500, 10, 10);
+	drawString(font, "Game Over Player 1 wins", 200, 500, 20, 20);
+	drawString(font, "Press E to exit", 200, 300, 20, 20);
 }
 
 void win2(unsigned font)
 {
-	drawString(font, "Game Over Player 2 wins", 300, 500, 10, 10);
+	drawString(font, "Game Over Player 2 wins", 200, 500, 20, 20);
+	drawString(font, "Press E to exit", 200, 300, 20, 20);
 }
