@@ -1,46 +1,51 @@
 #include "sfwdraw.h"
 #include "GameState.h"
 #include "paddle.h"
-GameState createGameState(unsigned f, unsigned d, bool gameover, Paddle p1, Paddle p2, Ball b1)
-{
-	GameState retval;
-	retval.f = f;
-	retval.gameover = gameover;
-	retval.p1 = p1;
-	retval.p2 = p2;
-	retval.b1 = b1;
-	
-	
+#include "Ball.h"
+#include "score.h"
 
-	return retval;
+void GameState::create(unsigned a_f, unsigned a_d)
+{
+	f = a_f;
+	d = a_d;
+
+	gameover = false;
+
+	p1.createpaddle(100, 'W', 'S', BLACK, 10, 100, 0);
+
+	p2.createpaddle(700, 'I', 'K', BLACK, 10, 100, 0);
+
+	b1.createBall(400, 300, 20, BLACK, 5, 5);
 }
 
-void updateGameState(GameState gs)
+void GameState::update()
 {
-	if (!gs.gameover)
+	if (!gameover)
 	{
-		updatePaddle(gs.p1);
-		drawPaddle(gs.p1);
-		updatePaddle(gs.p2);
-		drawPaddle(gs.p2);
-		drawBall(gs.b1);
-		updateBall(gs.b1, gs.p1, gs.p2);
+		p1.updatePaddle();
+		p1.drawPaddle();
+		p2.updatePaddle();
+		p2.drawPaddle();
+		
+		
+		b1.drawBall();
+		b1.updateBall(p1,p2);
 	}
-	if (gs.p1.score >= 5)
+	if (p1.score >= 5)
 	{
-		gs.gameover = true;
-		win(gs.d);
+		gameover = true;
+		win(d);
 	}
-	if (gs.p2.score >= 5)
+	if (p2.score >= 5)
 	{
-		gs.gameover = true;
+		gameover = true;
 		win2(d);
 	}
 
 }
 
-void drawGameState(GameState &gs)
+void GameState::draw()
 {
-	drawString(gs.f, "fucking bullshit", 0, 600, 48, 48, 0, ' ');
-	drawScore(gs.d, gs.p1.score, gs.p2.score);
+	drawString(f, "fucking bullshit", 0, 600, 48, 48, 0, ' ');
+	drawScore(d, p1.score, p2.score);
 }

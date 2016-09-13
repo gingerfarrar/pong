@@ -1,4 +1,5 @@
 #include "sfwdraw.h"
+#include "score.h"
 #include <iostream>
 using namespace sfw;
 

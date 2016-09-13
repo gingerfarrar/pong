@@ -2,33 +2,33 @@
 #include "sfwdraw.h"
 using namespace sfw;
 
-Paddle createpaddle(float x, char up, char down, unsigned int color, float speed, float size, int score)
+void Paddle::createpaddle(float a_x, char a_up, char a_down,
+			unsigned int a_color, float a_speed, float a_size, int a_score)
 {
-	Paddle retval;
-	retval.x = x;
-	retval.up = up;
-	retval.down = down;
-	retval.color = color;
-	retval.speed = speed;
-	retval.size = size;
-	retval.score = score;
-	return retval;
+	
+	x = a_x;
+	up = a_up;
+	down = a_down;
+	color = a_color;
+	speed = a_speed;
+	size = a_size;
+	score = a_score;
 }
 
-void updatePaddle(Paddle &p)
+void Paddle::updatePaddle()
 {
-	if (getKey(p.up) && p.y < 450)
+	if (getKey(up) && y < 450)
 	{
-		p.y += p.speed;
+		y += speed;
 	}
 
-	if (getKey(p.down) && p.y > 0)
+	if (getKey(down) && y > 0)
 	{
-		p.y -= p.speed;
+		y -= speed;
 	}
 }
 
-void drawPaddle(const Paddle &p)
+void Paddle::drawPaddle()
 {
-	drawLine(p.x, p.size + p.y, p.x, p.y, BLACK);
+	drawLine(x, y, x, y + size, BLACK);
 }

@@ -2,62 +2,63 @@
 #include "sfwdraw.h"
 using namespace sfw;
 #include <iostream>
+#include <cmath>
 
-Ball createBall(float xpos, float ypos, float radius, unsigned int color, float xvel, float yvel)
+void Ball::createBall(float a_xpos, float a_ypos, float a_radius, unsigned int a_color, float a_xvel, float a_yvel)
 {
-	Ball retval;
-	retval.xpos = xpos;
-	retval.ypos = ypos;
-	retval.radius = radius;
-	retval.color = color;
-	retval.xvel = xvel;
-	retval.yvel = yvel;
-	return retval;
+	xpos = a_xpos;
+	ypos = a_ypos;
+	radius = a_radius;
+	color = a_color;
+	xvel = a_xvel;
+	yvel = a_yvel;
 }
 
 
-void drawBall(const Ball &b)
+void Ball::drawBall()
 {
-	drawCircle(b.xpos, b.ypos, b.radius, 12, BLACK);
+	drawCircle(xpos, ypos, radius, 12, BLACK);
 }
 
-void updateBall(Ball &b, Paddle &p1, Paddle &p2)
+void Ball::updateBall(Paddle &p1, Paddle &p2)
 {
-	b.xpos += b.xvel;
-	b.ypos += b.yvel;
+	xpos += xvel;
+	ypos += yvel;
 
-	if (b.ypos > 600 - b.radius)
-	{
-		b.ypos = 600 - b.radius;
-		b.yvel *= -1;
-	}
-	if (b.ypos < 0 + b.radius)
-	{
-		b.ypos = 0 + b.radius;
-		b.yvel *= -1;
-	}
+	//ypos += cos(xpos/10)*10;
 
-	if ((b.xpos < p1.x) && b.ypos > p1.y && b.ypos < (p1.y + p1.size))
+	if (ypos > 600 - radius)
 	{
-		b.xvel *= -1;
-		b.xpos = p1.x + b.radius;
+		ypos = 600 - radius;
+		yvel *= -1;
 	}
-	if ((b.xpos > p2.x) && b.ypos > p2.y && b.ypos < (p2.y + p2.size))
+	if (ypos < 0 + radius)
 	{
-		b.xvel *= -1;
-		b.xpos = p2.x - b.radius;
+		ypos = 0 + radius;
+		yvel *= -1;
 	}
 
-	if (b.xpos < 0)
+	if ((xpos < p1.x) && ypos > p1.y && ypos < (p1.y + p1.size))
+	{
+		xvel *= -1;
+		xpos = p1.x + radius;
+	}
+	if ((xpos > p2.x) && ypos > p2.y && ypos < (p2.y + p2.size))
+	{
+		xvel *= -1;
+		xpos = p2.x - radius;
+	}
+
+	if (xpos < 0)
 	{
 		p2.score++;
 		printf("%d %d", p1.score, p2.score);
-		b.xpos = 300;
+		xpos = 300;
 	}
-	if (b.xpos > 800)
+	if (xpos > 800)
 	{
 		p1.score++;
 		printf("%d %d", p1.score, p2.score);
-		b.xpos = 300;
+		xpos = 300;
 	}
 }

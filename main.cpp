@@ -10,12 +10,15 @@ void main()
 	initContext(800,600,"NSFW");
 	setBackgroundColor(PINK);
 	
-	GameState gs = createGameState();
+	GameState gs;
+
+	gs.create(loadTextureMap("./res/tonc_font.png", 16, 6),
+			  loadTextureMap("./res/fontmap.png", 16, 16));
 
 	while (stepContext())
 	{	
-		updateGameState(gs);
-		drawGameState(gs);
+		gs.update();
+		gs.draw();
 	}
 
 	termContext();
