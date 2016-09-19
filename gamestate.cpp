@@ -4,11 +4,11 @@
 #include "Ball.h"
 #include "score.h"
 
-void GameState::create(unsigned a_f, unsigned a_d)
+void GameState::create(unsigned a_f, unsigned a_d, unsigned a_g)
 {
 	f = a_f;
 	d = a_d;
-
+	g = a_g;
 	gameover = false;
 
 	p1.createpaddle(100, 'W', 'S', BLACK, 10, 100, 0);
@@ -44,7 +44,8 @@ void GameState::update()
 
 void GameState::draw()
 {
-	drawString(f, "fucking bullshit", 0, 600, 48, 48, 0, ' ');
+	drawTexture(g, 0, 600, 800, 600, 0, false);
+	drawString(f, "fucking bullshit", 0, 600, 48, 48, 0, ' ');	
 	drawScore(d, p1.score, p2.score);
 }
 

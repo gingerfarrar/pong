@@ -12,7 +12,7 @@ using namespace sfw;
 void main()
 {
 	initContext(800,600,"NSFW");
-	setBackgroundColor(PINK);
+	
 	unsigned font = loadTextureMap("./res/fontmap.png", 16, 16);
 	GameState gs;
 	Splash splash;
@@ -51,10 +51,10 @@ void main()
 			break;
 
 		case ENTER_GAMESTATE:
-			gs.create(loadTextureMap("./res/tonc_font.png", 16, 6),loadTextureMap("./res/fontmap.png", 16, 16));
+			gs.create(loadTextureMap("./res/tonc_font.png", 16, 6),loadTextureMap("./res/fontmap.png", 16, 16), loadTextureMap("./res/bkgrnd.jpg"));
 		case GAMESTATE:
-			gs.update();
 			gs.draw();
+			gs.update();
 			state = gs.next();
 			break;
 		}

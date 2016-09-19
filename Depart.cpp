@@ -6,6 +6,7 @@ using namespace sfw;
 void Depart::init(int a_font)
 {
 	font = a_font;
+	
 }
 
 void Depart::play() { timer = 3.f; }
@@ -14,7 +15,9 @@ void Depart::draw()
 {
 	char buffer[64];
 	sprintf_s(buffer, "Splash Time: %f", timer);
-	drawString(font, "Press P to play", 100, 100, 20, 20);
+	drawString(font, "Press P to play", 100, 150, 20, 20);
+	drawString(font, "Press O for options", 100, 100, 20, 20);
+	setBackgroundColor(PINK);
 }
 
 void Depart::step() { timer -= getDeltaTime(); }
