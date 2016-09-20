@@ -22,5 +22,5 @@ void win(unsigned font)
 void win2(unsigned font)
 {
 	drawString(font, "Game Over Player 2 wins", 200, 500, 20, 20);
-	drawString(font, "Press E to exit", 200, 300, 20, 20);
+	drawString(font, "Press E to exit", 200, 200, 20, 20);
 }

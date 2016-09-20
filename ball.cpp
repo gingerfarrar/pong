@@ -30,22 +30,22 @@ void Ball::updateBall(Paddle &p1, Paddle &p2)
 	if (ypos > 600 - radius)
 	{
 		ypos = 600 - radius;
-		yvel *= -1;
+		yvel *= -2;
 	}
 	if (ypos < 0 + radius)
 	{
 		ypos = 0 + radius;
-		yvel *= -1;
+		yvel *= -2;
 	}
 
 	if ((xpos < p1.x) && ypos > p1.y && ypos < (p1.y + p1.size))
 	{
-		xvel *= -1;
+		xvel *= -2;
 		xpos = p1.x + radius;
 	}
 	if ((xpos > p2.x) && ypos > p2.y && ypos < (p2.y + p2.size))
 	{
-		xvel *= -1;
+		xvel *= -2;
 		xpos = p2.x - radius;
 	}
 
