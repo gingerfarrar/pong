@@ -11,4 +11,8 @@ void win(unsigned font);
 
 void win2(unsigned font);
 
+void win3(unsigned font);
+
+void win4(unsigned font);
+
 //};

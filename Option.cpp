@@ -15,6 +15,8 @@ void Option::draw()
 {
 	char buffer[64];
 	sprintf_s(buffer, "Splash Time: %f", timer);
+	drawString(font, "There are no options", 100, 550, 20, 20);
+	drawString(font, "just play the fucking game", 100, 500, 20, 20);
 	drawString(font, "Press B to go back", 100, 100, 20, 20);
 	setBackgroundColor(BLUE);
 }

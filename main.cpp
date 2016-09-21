@@ -7,6 +7,7 @@
 #include "Splash.h"
 #include "Depart.h"
 #include "Option.h"
+#include "level2.h"
 using namespace sfw;	
 
 void main()
@@ -18,6 +19,7 @@ void main()
 	Splash splash;
 	Depart depart;
 	Option option;
+	Level2 lv;
 	splash.init(font);
 	depart.init(font);
 	option.init(font);
@@ -41,7 +43,6 @@ void main()
 			depart.draw();
 			state = depart.next();
 			break;
-
 		case ENTER_OPTION:
 			option.play();
 		case OPTION:
@@ -49,13 +50,19 @@ void main()
 			option.draw();
 			state = option.next();
 			break;
-
 		case ENTER_GAMESTATE:
 			gs.create(loadTextureMap("./res/tonc_font.png", 16, 6),loadTextureMap("./res/fontmap.png", 16, 16), loadTextureMap("./res/bkgrnd.jpg"));
 		case GAMESTATE:
 			gs.draw();
 			gs.update();
 			state = gs.next();
+			break;
+		case ENTER_LEVEL2:
+			lv.create(loadTextureMap("./res/tonc_font.png", 16, 6), loadTextureMap("./res/fontmap.png", 16, 16), loadTextureMap("./res/bkgrnd.jpg"));
+		case LEVEL2:
+			lv.draw();
+			lv.update();
+			state = lv.next();
 			break;
 		}
 

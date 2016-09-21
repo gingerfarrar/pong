@@ -127,6 +127,7 @@
     <ClCompile Include="ball.cpp" />
     <ClCompile Include="Depart.cpp" />
     <ClCompile Include="gamestate.cpp" />
+    <ClCompile Include="level2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Option.cpp" />
     <ClCompile Include="paddle.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="constdecl.h" />
     <ClInclude Include="Depart.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="level2.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="paddle.h" />
     <ClInclude Include="score.h" />
