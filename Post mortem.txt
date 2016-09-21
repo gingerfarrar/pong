@@ -1,0 +1,11 @@
+Post Mortem
+
+	I feel i accomplished all my goals.
+I didn't really have any plans at all.
+i had a hard time with collision and
+the background. But i had a fun time 
+doing game states.
+	i recieved help from esme and terry with 
+collision and the background.
+theres not much i would want to do different
+i could have made wall ball i guess.
